@@ -13,6 +13,7 @@ RUN \
         net-snmp-libs=5.8-r3 \
         openssl=1.1.1g-r0 \
         usbutils=012-r1 \
+        git \
     && apk add --no-cache --virtual .build-dependencies \
         autoconf=2.69-r2 \
         automake=1.16.2-r0 \
@@ -20,13 +21,11 @@ RUN \
         libusb-compat-dev=0.1.5-r4 \
         neon-dev=0.31.1-r0 \
         net-snmp-dev=5.8-r3 \
-    \
-    && curl -J -L -o /tmp/nut.tar.gz \
-        http://www.networkupstools.org/source/2.7/nut-2.7.4.tar.gz \
-    && mkdir -p /tmp/nut \
-    && tar zxf /tmp/nut.tar.gz -C \
-        /tmp/nut --strip-components=1 \
+        python2 \
+    && git clone https://github.com/EVER-PowerSystems/nut.git /tmp/nut \
     && cd /tmp/nut \
+    && git checkout ever_hid_ups \
+    && ./autogen.sh \
     && ./configure \
             --prefix=/usr \
             --libexecdir=/usr/lib/nut \
