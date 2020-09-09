@@ -22,7 +22,7 @@ RUN \
         neon-dev=0.31.1-r0 \
         net-snmp-dev=5.8-r3 \
         python2 \
-    && git clone https://github.com/EVER-PowerSystems/nut.git /tmp/nut \
+    && git clone https://github.com/vincentto13/nut.git /tmp/nut \
     && cd /tmp/nut \
     && git checkout ever_hid_ups \
     && ./autogen.sh \
@@ -65,8 +65,8 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="Network UPS Tools" \
-    io.hass.description="Manage battery backup (UPS) devices" \
+    io.hass.name="Network UPS Tools (Ever support)" \
+    io.hass.description="Manage battery backup (UPS) devices, supporting Ever UPS" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
