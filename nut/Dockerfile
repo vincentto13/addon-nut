@@ -65,7 +65,7 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="Network UPS Tools (Ever support)" \
+    io.hass.name="Network UPS Tools (Ever UPS support)" \
     io.hass.description="Manage battery backup (UPS) devices, supporting Ever UPS" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
